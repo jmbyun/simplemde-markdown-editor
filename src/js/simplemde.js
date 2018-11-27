@@ -1492,7 +1492,8 @@ SimpleMDE.prototype.render = function(el) {
 		lineWrapping: (options.lineWrapping === false) ? false : true,
 		allowDropFileTypes: ["text/plain"],
 		placeholder: options.placeholder || el.getAttribute("placeholder") || "",
-		styleSelectedText: (options.styleSelectedText != undefined) ? options.styleSelectedText : true
+		styleSelectedText: (options.styleSelectedText != undefined) ? options.styleSelectedText : true,
+		readOnly: options.readOnly || false,
 	});
 
 	if(options.forceSync === true) {
@@ -1532,7 +1533,7 @@ function isLocalStorageAvailable() {
 		try {
 			localStorage.setItem("smde_localStorage", 1);
 			localStorage.removeItem("smde_localStorage");
-		} catch(e) {
+		} catch (e) {
 			return false;
 		}
 	} else {
